@@ -23,15 +23,17 @@ export default {
   },
   methods : {
     fetchCustomers(){
-      axios.get('http://<your Ip address>/api/patients')
+      axios.get('http://18.216.143.75/api/patients')
         .then(res=>this.patientdata=res.data)
         .catch(err=>console.log(err))
       
       
     },
     createPatient(newPatient){
-      const {name,location,streetname,status} = newPatient;
-      axios.post('http://<your Ip address>/api/patients',{
+      console.log(newPatient)
+      const {location,streetname,status} = newPatient;
+      const name = newPatient.name.toLowerCase();
+      axios.post('http://18.216.143.75/api/patients',{
         name,
         location,
         streetname,
@@ -47,7 +49,7 @@ export default {
         .catch(err=>console.log(err))
     },
     deleteRecord (id){
-      axios.delete(`http://<your Ip address>/api/patients/${id}`)
+      axios.delete(`http://18.216.143.75/api/patients/${id}`)
       .then(this.patientdata=this.patientdata.filter(patientdata=>patientdata.id!==id))
       .catch(err=>console.log(err))
     }
