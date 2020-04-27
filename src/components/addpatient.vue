@@ -34,9 +34,12 @@
       </div>
     </div>
     <div class= "row" id="wrapper">
-      <input type="submit" value="Create Record" class="btn btn-primary">
+      <input type="submit" value="Create Record">
     </div>
   </form>
+    <div class="success" v-if="success==1"> 
+<small>Record Created</small>
+    </div>
     </div>
 </template>
 <script>
@@ -47,7 +50,8 @@ export default {
             name: '',
             location: '',
             streetname:'',
-            status:''
+            status:'',
+            success: ''
         }
         
     },
@@ -66,6 +70,7 @@ export default {
             this.location= '',
             this.streetname='',
             this.status=''
+            this.success=1
             }
             else{
                 alert("Please enter all the details")
@@ -81,7 +86,9 @@ export default {
 }
 </script>
 <style scoped>
-
+.success {
+    color: #fff;
+}
 input[type=text], select, textarea {
   width: 80%;
   padding: 12px;
@@ -97,6 +104,7 @@ label {
 }
 
 input[type=submit] {
+  background-color: #42b983;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -107,7 +115,7 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: #26b977;
 }
 
 .container {
@@ -142,8 +150,8 @@ input[type=submit]:hover {
   }
   input[type=submit] {
     width:80%;
-    margin-top:5px;
-    margin-left: 50px;
+    margin-top:15px;
+    margin-left: 48px;
   }
 }
 </style>

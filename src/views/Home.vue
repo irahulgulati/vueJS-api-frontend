@@ -45,7 +45,7 @@ export default {
         .catch(err=>console.log(err))
     },
     deleteRecord (id){
-      axios.delete(`http://18.216.143.75/api/patients/${id}`)
+      axios.delete(`http://3.133.84.56/api/patients/${id}`)
       .then(this.patientdata=this.patientdata.filter(patientdata=>patientdata.id!==id))
       .catch(err=>console.log(err))
     }
