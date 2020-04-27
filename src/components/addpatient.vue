@@ -1,19 +1,42 @@
 <template>
-    <div class="add ">
-      <div class="container">
-        <form @submit="addPatient">
-          <div class="input-group ">
-            <!-- <div class="input-group-prepend">
-             <span class="input-group-text" id="">Patient's Details</span>
-             </div> -->
-             <input type="text" class="form-control" placeholder="Name" v-model="name">
-             <input type="text" class="form-control" placeholder="Location" v-model="location">
-             <input type="text" class="form-control" placeholder="Street" v-model="streetname">
-             <input type="text" class="form-control" placeholder="Covid status" v-model="status">
-             <input type="submit" value="Create Record" class="btn-primary sbmt">
-        </div>
-        </form>
+    <div class="container">
+  <form @submit="addPatient">
+    <div class="row">
+      <div class="col-25">
+        <label for="name">Name</label>
       </div>
+      <div class="col-75">
+        <input type="text" id="name" name="name" placeholder="Patient's name.." v-model="name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="loc">Location</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="loc" name="lastname" placeholder="Patient's location" v-model="location">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="street">Street Name</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="street" name="lastname" placeholder="Patient's Street Address" v-model="streetname">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label for="subject">Covid Status</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="lname" name="lastname" placeholder="Patient's Covid Status" v-model="status">
+      </div>
+    </div>
+    <div class= "row" id="wrapper">
+      <input type="submit" value="Create Record" class="btn btn-primary">
+    </div>
+  </form>
     </div>
 </template>
 <script>
@@ -30,6 +53,7 @@ export default {
     },
     methods: {
         addPatient(e){
+            console.log("we are here")
             if(this.name !== ''&& this.location !== ''&& this.streetname !== ''&&this.status !== ''){
                             const newPatient = {
                 name: this.name,
@@ -57,14 +81,69 @@ export default {
 }
 </script>
 <style scoped>
-    .add{
-        margin-bottom: 2em;
 
-    }
+input[type=text], select, textarea {
+  width: 80%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
 
-    .sbmt{
-        outline: none;
-        border-top-right-radius:5px ;
-        border-bottom-right-radius: 5px;
-    }
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color: #fff;
+}
+
+input[type=submit] {
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  float: right;
+  margin-top:10px;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #343a40;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75 {
+    width: 100%;
+    margin-top: 0;
+  }
+  input[type=submit] {
+    width:80%;
+    margin-top:5px;
+    margin-left: 50px;
+  }
+}
 </style>
