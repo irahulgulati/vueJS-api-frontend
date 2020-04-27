@@ -1,8 +1,12 @@
-# frontend
+# vueJS-api-frontend
 
 ## Project setup
 ```
 npm install
+```
+```
+update API http url in App.vue file
+
 ```
 
 ### Compiles and hot-reloads for development
