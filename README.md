@@ -1,11 +1,12 @@
-# vueJS-api-frontend
+# Frontend for CRUD api
+## Built and Maintained by irahulgulati
 
 ## Project setup
 ```
 npm install
 ```
 ```
-update API http url in App.vue file
+update API http url in src/views/<<Home/Create>>.vue file
 
 ```
 
@@ -24,6 +25,3 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-"# vueJS-api-frontend" 
