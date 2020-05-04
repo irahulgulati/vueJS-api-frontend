@@ -6,7 +6,7 @@
         <label for="name">Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="name" name="name" placeholder="Patient's name.." v-model="name">
+        <input type="text" id="name" name="name" placeholder="Patient's name.." v-model="name" maxlength="25">
       </div>
     </div>
     <div class="row">
@@ -14,7 +14,7 @@
         <label for="loc">Location</label>
       </div>
       <div class="col-75">
-        <input type="text" id="loc" name="lastname" placeholder="Patient's location" v-model="location">
+        <input type="text" id="loc" name="lastname" placeholder="Patient's location" v-model="location" maxlength="15">
       </div>
     </div>
     <div class="row">
@@ -22,7 +22,7 @@
         <label for="street">Street Name</label>
       </div>
       <div class="col-75">
-        <input type="text" id="street" name="lastname" placeholder="Patient's Street Address" v-model="streetname">
+        <input type="text" id="street" name="lastname" placeholder="Patient's Street Address" v-model="streetname" maxlength="15">
       </div>
     </div>
     <div class="row">
@@ -30,10 +30,10 @@
         <label for="subject">Covid Status</label>
       </div>
       <div class="col-75">
-        <input type="text" id="lname" name="lastname" placeholder="Patient's Covid Status" v-model="status">
+        <input type="text" id="lname" name="lastname" placeholder="Patient's Covid Status" v-model="status" maxlength="10">
       </div>
     </div>
-    <div class= "row" id="wrapper">
+    <div class= "row">
       <input type="submit" value="Create Record">
     </div>
   </form>
