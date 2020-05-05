@@ -145,8 +145,9 @@ input[type=submit]:hover {
   }
   input[type=submit] {
     width:80%;
-    margin-top:15px;
-    margin-left: 48px;
+    margin-top:20px;
+    margin-left:auto;
+    margin-right: auto;
   }
 }
 </style>
