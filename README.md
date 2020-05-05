@@ -1,12 +1,12 @@
 # Frontend for CRUD api
 ## Built and Maintained by irahulgulati
 
-## Project setup
+# Project setup
 ```
 npm install
 ```
 ```
-update API http url in src/views/<<Home/Create>>.vue file
+update Axios API http url in src/views/<<Home/Create>>.vue file
 
 ```
 
