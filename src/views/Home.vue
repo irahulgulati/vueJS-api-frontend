@@ -1,6 +1,9 @@
 <template>
   <div id="app container">
     <patients v-bind:patientdata="patientdata" v-on:delrecord="deleteRecord"/>
+    <div v-if="error">
+      {{ error }}
+    </div>
   </div>
 </template>
 
@@ -14,35 +17,17 @@ export default {
   },
   data(){
     return {
-      patientdata : []
+      patientdata : [],
+      error:''
     }
   },
   methods : {
     fetchCustomers(){
       axios.get('http://3.133.84.56/api/patients')
         .then(res=>this.patientdata=res.data)
-        .catch(err=>console.log(err))
+        .catch(() => this.error= 'umm! looks like we have a problem getting records.')
       
       
-    },
-    createPatient(newPatient){
-      console.log(newPatient)
-      const {location,streetname,status} = newPatient;
-      const name = newPatient.name.toLowerCase();
-      axios.post('http://3.133.84.56/api/patients',{
-        name,
-        location,
-        streetname,
-        status
-      }).then(res=>{
-        if(res.data.name == "patient already exists"){
-          alert("Patient already exists")
-        }
-        else{
-          this.patientdata=[...this.patientdata,res.data]
-        }
-      })
-        .catch(err=>console.log(err))
     },
     deleteRecord (id){
       axios.delete(`http://3.133.84.56/api/patients/${id}`)
@@ -64,5 +49,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  /* position: relative; */
 }
 </style>

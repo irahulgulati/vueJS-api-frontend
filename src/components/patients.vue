@@ -1,5 +1,5 @@
 <template>
-  <div class="container container-fluid">
+  <div class="patientcontainer">
   <table class="table table-striped table-dark">
   <thead>
     <tr>
@@ -57,5 +57,8 @@ export default {
     outline:none
 
   }
+    .patientcontainer{
+      position:relative;
+    }
 
 </style>

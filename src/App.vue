@@ -14,19 +14,30 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
+  /* color: #2c3e50;
+  background: #2c3e50; */
+  position: relative;
+ }
 
-#nav {
-  padding: 30px;
+.upnav{
+  position: relative;
 }
-
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+.container{
+  position: relative;
+
+  
+}
+body{
+  width:100%;
+  height: 100%;
+  position: absolute;
+  background: #181A1B;
 }
 </style>

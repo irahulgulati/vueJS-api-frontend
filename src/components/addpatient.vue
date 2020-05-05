@@ -37,9 +37,6 @@
       <input type="submit" value="Create Record">
     </div>
   </form>
-    <div class="success" v-if="success==1"> 
-<small>Record Created</small>
-    </div>
     </div>
 </template>
 <script>
@@ -50,14 +47,12 @@ export default {
             name: '',
             location: '',
             streetname:'',
-            status:'',
-            success: ''
+            status:''
         }
         
     },
     methods: {
         addPatient(e){
-            console.log("we are here")
             if(this.name !== ''&& this.location !== ''&& this.streetname !== ''&&this.status !== ''){
                             const newPatient = {
                 name: this.name,
@@ -70,7 +65,6 @@ export default {
             this.location= '',
             this.streetname='',
             this.status=''
-            this.success=1
             }
             else{
                 alert("Please enter all the details")
@@ -122,6 +116,7 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: #343a40;
   padding: 20px;
+  position:relative;
 }
 
 .col-25 {
