@@ -33,8 +33,11 @@
         <input type="text" id="lname" name="lastname" placeholder="Patient's Covid Status" v-model="status" maxlength="10">
       </div>
     </div>
-    <div class= "row">
-      <input type="submit" value="Create Record">
+    <div class= "row" v-if="processing === true">
+      <button class="btn btn-success btn-lg" id="disabledbtn" value="Processing" disabled>Processing</button>
+    </div>
+    <div class= "row" v-else>
+      <button class="btn btn-success btn-lg" value="Create Record" >Create Record</button>
     </div>
   </form>
     </div>
@@ -51,20 +54,21 @@ export default {
         }
         
     },
+    props: ["processing"],
     methods: {
         addPatient(e){
             if(this.name !== ''&& this.location !== ''&& this.streetname !== ''&&this.status !== ''){
-                            const newPatient = {
-                name: this.name,
-                location:this.location,
-                streetname:this.streetname,
-                status:this.status
-            }
-            this.$emit('newPatient',newPatient)
-            this.name = ''
-            this.location= '',
-            this.streetname='',
-            this.status=''
+                const newPatient = {
+                  name: this.name,
+                  location:this.location,
+                  streetname:this.streetname,
+                  status:this.status
+                }
+                this.$emit('newPatient',newPatient)
+                this.name = ''
+                this.location= '',
+                this.streetname='',
+                this.status=''
             }
             else{
                 alert("Please enter all the details")
@@ -80,6 +84,9 @@ export default {
 }
 </script>
 <style scoped>
+#disabledbtn{
+  cursor: wait;
+}
 .success {
     color: #fff;
 }
