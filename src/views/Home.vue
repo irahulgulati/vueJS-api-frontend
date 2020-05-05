@@ -23,8 +23,12 @@ export default {
   },
   methods : {
     fetchCustomers(){
+      this.error='Fetching records'
       axios.get('http://3.133.84.56/api/patients')
-        .then(res=>this.patientdata=res.data)
+        .then(res=>{
+          this.error='';
+          this.patientdata=res.data
+          })
         .catch(() => this.error= 'umm! looks like we have a problem getting records.')
       
       
@@ -32,7 +36,7 @@ export default {
     deleteRecord (id){
       axios.delete(`http://3.133.84.56/api/patients/${id}`)
       .then(this.patientdata=this.patientdata.filter(patientdata=>patientdata.id!==id))
-      .catch(err=>console.log(err))
+      .catch( () => this.error="Error deleting record, please try later")
     }
   },
   created: function(){

@@ -1,7 +1,7 @@
 <template>
   <div class="about">
-    <div class="errorhandler" v-if="error">
-        {{error}}
+    <div class="codehandler" v-if="code">
+        {{code}}
     </div>
     <addpatient v-on:newPatient="createPatient"/>
   </div>
@@ -16,13 +16,14 @@ export default {
   },
   data(){
     return {
-      error:''
+      code:''
     }
   },
   methods : {
     createPatient(newPatient){
       const {location,streetname,status} = newPatient;
       const name = newPatient.name.toLowerCase();
+      this.code="Processing request"
       axios.get('http://3.133.84.56/api/patients')
       .then(
           () => {
@@ -34,16 +35,19 @@ export default {
             })
             .then(res=>{
                 if(res.data.name == "patient already exists"){
-                  this.error = "Patient already exists"
+                  this.code = "Patient already exists"
                   }
                 else{
                   this.patientdata=[...this.patientdata,res.data]
+                  this.code="Patient record added to database"
                 }
              })
-            .catch(() => this.error = 'urrrghhhh! Record cannot be created')
+            .catch(() => this.code = 'urrrghhhh! Record cannot be created')
            }
         )
-      .catch(() => this.error="404! Connection timed out")
+      .catch(() => {
+        this.code="404! Connection timed out";
+        })
       
     }
 }
